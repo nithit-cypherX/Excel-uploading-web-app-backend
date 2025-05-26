@@ -16,7 +16,7 @@ requiredEnv.forEach((name) => {
     }
 });
 
-Debugging: Check loaded environment variables
+// Debugging: Check loaded environment variables
 console.log('🔎 ENV Variables:', {
     host: process.env.MYSQL_HOST,
     user: process.env.MYSQL_USERNAME,
