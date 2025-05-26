@@ -6,8 +6,8 @@ const path = require('path');
 // Load .env file from Backend folder
 dotenv.config({ path: path.join(__dirname, '.env') });
 
-// Safe check: Make sure all required env variables are loaded
-const requiredEnv = ['MYSQL_HOST', 'MYSQL_USER', 'MYSQL_PASSWORD', 'MYSQL_DATABASE', 'MYSQL_PORT', 'MYSQL_URI'];
+// Safe check
+const requiredEnv = ['MYSQL_HOST', 'MYSQL_USER', 'MYSQL_PASSWORD', 'MYSQL_DB', 'MYSQL_PORT'];
 
 requiredEnv.forEach((name) => {
     if (!process.env[name]) {
@@ -16,24 +16,22 @@ requiredEnv.forEach((name) => {
     }
 });
 
-// Debugging: Check loaded environment variables
+// Debug
 console.log('🔎 ENV Variables:', {
     host: process.env.MYSQL_HOST,
     user: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
     database: process.env.MYSQL_DB,
-    port : process.env.MYSQL_PORT,
-    url : process.env.MYSQL_URI,
+    port: process.env.MYSQL_PORT,
 });
 
-// Create a reusable connection pool
+// Create pool
 const pool = mysql.createPool({
     host: process.env.MYSQL_HOST,
     user: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
     database: process.env.MYSQL_DB,
-    port : process.env.MYSQL_PORT,
-    url : process.env.MYSQL_URI,
+    port: process.env.MYSQL_PORT,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
