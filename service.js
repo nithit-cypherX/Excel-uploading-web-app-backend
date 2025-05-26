@@ -15,7 +15,7 @@ app.use(fileUpload());
 
 // Update cors() middleware to allow cookies:
 const corsOptions = {
-    origin: 'http://localhost:5500', // ✅ include http://
+    origin: 'https://excel-uploading-web-app.onrender.com', // ✅ include http://
     credentials: true,
 };
 app.use(cors(corsOptions));
