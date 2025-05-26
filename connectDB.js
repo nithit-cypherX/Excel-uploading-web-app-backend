@@ -7,7 +7,7 @@ const path = require('path');
 dotenv.config({ path: path.join(__dirname, '.env') });
 
 // Safe check: Make sure all required env variables are loaded
-const requiredEnv = ['MYSQL_HOST', 'MYSQL_USERNAME', 'MYSQL_PASSWORD', 'MYSQL_DATABASE'];
+const requiredEnv = ['MYSQL_HOST', 'MYSQL_USER', 'MYSQL_PASSWORD', 'MYSQL_DATABASE', 'MYSQL_PORT', 'MYSQL_URI'];
 
 requiredEnv.forEach((name) => {
     if (!process.env[name]) {
