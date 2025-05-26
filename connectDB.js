@@ -19,17 +19,21 @@ requiredEnv.forEach((name) => {
 // Debugging: Check loaded environment variables
 console.log('🔎 ENV Variables:', {
     host: process.env.MYSQL_HOST,
-    user: process.env.MYSQL_USERNAME,
+    user: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
-    database: process.env.MYSQL_DATABASE
+    database: process.env.MYSQL_DB,
+    port : process.env.MYSQL_PORT,
+    url : process.env.MYSQL_URI,
 });
 
 // Create a reusable connection pool
 const pool = mysql.createPool({
     host: process.env.MYSQL_HOST,
-    user: process.env.MYSQL_USERNAME,
+    user: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
-    database: process.env.MYSQL_DATABASE,
+    database: process.env.MYSQL_DB,
+    port : process.env.MYSQL_PORT,
+    url : process.env.MYSQL_URI,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
